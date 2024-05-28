@@ -139,3 +139,146 @@ print(games.count)
 var games_set: Set<String> = Set(games)
 print(games_set.count)
 // Day 5 - Conditions
+// Swift's .count is an O(n) operation. But strings, arrs, dicts, sets have a .isEmpty parameter.
+var username: String = ""
+if username.isEmpty {
+    username = "Anon"
+}
+print(username)
+enum Sizes: Comparable {
+    case small
+    case medium
+    case large
+}
+let first = Sizes.small
+let second = Sizes.large
+print(first < second)
+enum Sizes2 {
+    case small
+    case medium
+    case large
+}
+let third = Sizes2.small
+let fourth = Sizes2.large
+//print(third < fourth)
+// We need the "Comparable" tag to make directional operators work with enums.
+let temp = 25
+
+if temp > 20 {
+    if temp < 30 {
+        print("It's a nice day1.")
+    }
+}
+if temp > 20 && temp < 30 {
+    print("It's a nice day2.")
+}
+
+if temp < 20 || temp < 30 {
+    print("It's a nice day3.")
+}
+enum TransportOption {
+    case airplane, helicopter, bicycle, car, scooter
+}
+
+let transport = TransportOption.airplane
+
+if transport == .airplane || transport == .helicopter {
+    print("Let's fly!")
+} else if transport == .bicycle {
+    print("I hope there's a bike path…")
+} else if transport == .car {
+    print("Time to get stuck in traffic.")
+} else {
+    print("I'm going to hire a scooter now!")
+}
+
+// Swift switches stop when the first case is matched. And also, the switch must contain every case. But default can be used for string matches.
+enum Weather {
+    case sun, rain, wind, snow, unknown
+}
+
+let forecast = Weather.sun
+
+if forecast == .sun {
+    print("It should be a nice day.")
+} else if forecast == .rain {
+    print("Pack an umbrella.")
+} else if forecast == .wind {
+    print("Wear something warm")
+} else if forecast == .rain {
+    print("School is cancelled.")
+} else {
+    print("Our forecast generator is broken!")
+}
+
+switch forecast {
+case .sun:
+    print("It should be a nice day2.")
+case .rain:
+    print("Pack an umbrella2.")
+case .wind:
+    print("Wear something warm2")
+case .snow:
+    print("School is cancelled2.")
+case .unknown:
+    print("Our forecast generator is broken!2")
+}
+
+// We can use "default" to handle string options to switch on a string variable, instead of a enum.
+let place = "Metropolis"
+
+switch place {
+case "Gotham":
+    print("You're Batman!")
+case "Mega-City One":
+    print("You're Judge Dredd!")
+case "Wakanda":
+    print("You're Black Panther!")
+default:
+    print("Who are you?")
+}
+// If we want a Java style switch then we can use the fallthrough keyword.
+// This allows multiple cases to be filled
+let dayNum = 5
+print("My true love gave to me…")
+
+switch dayNum {
+case 5:
+    print("5 golden rings")
+    fallthrough
+case 4:
+    print("4 calling birds")
+    fallthrough
+case 3:
+    print("3 French hens")
+    fallthrough
+case 2:
+    print("2 turtle doves")
+    fallthrough
+default:
+    print("A partridge in a pear tree")
+}
+// Ternary operator
+let age3 = 16
+let canVote = age3 >= 18 ? "Yes" : "No"
+print(canVote)
+
+let hour = 23
+
+// print statements can handle ternary operators inside the function, but not if statements. So this is invalid:
+//print(
+//    if hour < 12 {
+//        "It's before noon"
+//    } else {
+//        "It's after noon"
+//    }
+//)
+// But this is valid:
+print(hour < 12 ? "It's before noon" : "It's after noon")
+// This is also valid:
+if hour < 12 {
+    print("It's before noon")
+} else {
+    print("It's after noon")
+}
+
