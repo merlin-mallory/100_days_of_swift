@@ -85,7 +85,7 @@ let employee2 = [
     "job": "Singer",
     "location": "Nashville"
 ]
-print(employee2["name"])
+//print(employee2["name"])
 print(employee2["name", default: "Unknown"])
 var heights = [String: Int]()
 heights["Yao Ming"] = 229
@@ -119,5 +119,23 @@ print(day)
 // Day 4 - Type annotations and checkpoint 2
 var book: Set<String> = Set(["a","b","c"])
 print(book)
-var book2: [String](["a", "b", "c"])
+var book2: [String] = (["a", "b", "c"])
 print(book2)
+var book3: [String: String] = ["id": "a"]
+print(book3)
+var teams: [String] = [String]()
+var teams2: [String] = []
+print(teams)
+print(teams2)
+enum UIStyle {
+    case light, dark, system
+}
+var style: UIStyle = UIStyle.light
+style = .dark
+print(style)
+// Checkpoint 2 - Create array of strings, and print the number of items in array, and number of unique items in the array
+var games: [String] = ["League of Legends", "Final Fantasy", "League of Legends", "Cyberpunk", "League of Legends"]
+print(games.count)
+var games_set: Set<String> = Set(games)
+print(games_set.count)
+// Day 5 - Conditions
